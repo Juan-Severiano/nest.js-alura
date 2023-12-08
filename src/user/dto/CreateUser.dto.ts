@@ -8,10 +8,11 @@ export class CreateUserDTO {
     name: string;
 
     @IsEmail()
+    @EmailIsUnique()
     @IsNotEmpty({ message: "o email nao pode ser vazio baby" })
     email: string; 
     
     @IsNotEmpty()
-    @MinLength(6)
+    @MinLength(6, { message: 'O tamanho minimo é de 6 caracteres' })
     password: string;
 }
